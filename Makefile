@@ -4,6 +4,6 @@ build:
 
 .PHONY: test
 test:
-	go test -v -race -timeout 30s ./internal/...
+	go test -v -race -timeout 30s ./internal/app/...
 
 .DEFAULT_GOAL := build
