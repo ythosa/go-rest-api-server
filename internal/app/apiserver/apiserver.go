@@ -1,11 +1,12 @@
 package apiserver
 
 import (
+	"io"
+	"net/http"
+
 	"github.com/gorilla/mux"
 	"github.com/sirupsen/logrus"
 	"github.com/ythosa/go-rest-api-server/internal/app/store"
-	"io"
-	"net/http"
 )
 
 // APIServer ...
@@ -13,7 +14,7 @@ type APIServer struct {
 	config *Config
 	logger *logrus.Logger
 	router *mux.Router
-	store *store.Store
+	store  *store.Store
 }
 
 // New ...
@@ -69,7 +70,7 @@ func (s *APIServer) configureRouter() {
 }
 
 func (s *APIServer) handleHello() http.HandlerFunc {
-	return func(w http.ResponseWriter,  r *http.Request) {
+	return func(w http.ResponseWriter, r *http.Request) {
 		io.WriteString(w, "Hello")
 	}
 }

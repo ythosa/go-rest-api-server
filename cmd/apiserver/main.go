@@ -2,9 +2,10 @@ package main
 
 import (
 	"flag"
+	"log"
+
 	"github.com/BurntSushi/toml"
 	"github.com/ythosa/go-rest-api-server/internal/app/apiserver"
-	"log"
 )
 
 var (
