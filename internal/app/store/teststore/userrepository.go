@@ -1,9 +1,8 @@
 package teststore
 
 import (
-	"errors"
-
 	"github.com/ythosa/go-rest-api-server/internal/app/model"
+	"github.com/ythosa/go-rest-api-server/internal/app/store"
 )
 
 // UserRepository ...
@@ -32,7 +31,7 @@ func (r *UserRepository) Create(u *model.User) error {
 func (r *UserRepository) FindByEmail(email string) (*model.User, error) {
 	u, ok := r.users[email]
 	if !ok {
-		return nil, errors.New("not found")
+		return nil, store.ErrRecordNotFound
 	}
 
 	return u, nil

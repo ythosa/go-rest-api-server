@@ -1,6 +1,9 @@
 package sqlstore
 
-import "github.com/ythosa/go-rest-api-server/internal/app/model"
+import (
+	"github.com/ythosa/go-rest-api-server/internal/app/model"
+	"github.com/ythosa/go-rest-api-server/internal/app/store"
+)
 
 // UserRepository ...
 type UserRepository struct {
@@ -36,7 +39,7 @@ func (r *UserRepository) FindByEmail(email string) (*model.User, error) {
 		&u.Email,
 		&u.EncryptedPassword,
 	); err != nil {
-		return nil, err
+		return nil, store.ErrRecordNotFound
 	}
 
 	return u, nil
