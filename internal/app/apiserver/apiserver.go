@@ -67,6 +67,7 @@ func (s *APIServer) configureStore() error {
 
 func (s *APIServer) configureRouter() {
 	s.router.HandleFunc("/hello", s.handleHello())
+	// s.router.HandleFunc("/planes", s.handleGetPlanes())
 }
 
 func (s *APIServer) handleHello() http.HandlerFunc {
