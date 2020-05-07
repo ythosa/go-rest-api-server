@@ -1,4 +1,4 @@
-<h1 align="center">Where-Is?</h1>
+<h1 align="center">go-rest-api-server</h1>
 <div align="center">
   
 
@@ -9,11 +9,11 @@
 
 </div>
 
-# Install
+## Install
 -    `go get github.com/Ythosa/go-rest-api-server`
 
 
-# Description
+## Description
 *    REST API Server written in GoLang
 *    Involve:
       * Registration;
