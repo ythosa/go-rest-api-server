@@ -18,3 +18,15 @@ func TestPlaneRepository_Create(t *testing.T) {
 	assert.NoError(t, s.Plane().Create(p))
 	assert.NotNil(t, p.ID)
 }
+
+func TestPlaneRepository_Find(t *testing.T) {
+	db, teardown := sqlstore.TestDB(t, databaseURL)
+	defer teardown("planes")
+
+	s := sqlstore.New(db)
+	p1 := model.TestPlane(t)
+	s.Plane().Create(p1)
+	p2, err := s.Plane().Find(p1.ID)
+	assert.NoError(t, err)
+	assert.NotNil(t, p2)
+}

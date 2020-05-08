@@ -15,7 +15,7 @@ type Plane struct {
 func (p *Plane) Validate() error {
 	return validation.ValidateStruct(
 		p,
-		validation.Field(&p.Name, validation.Required),
-		validation.Field(&p.ManufactureYear, validation.Required),
+		validation.Field(&p.Name, validation.Required, validation.NotNil),
+		validation.Field(&p.ManufactureYear, validation.Required, validation.NotNil, validation.Min(1800), validation.Max(2050)),
 	)
 }
