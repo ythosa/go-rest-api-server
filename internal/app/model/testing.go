@@ -9,3 +9,11 @@ func TestUser(t *testing.T) *User {
 		Password: "password",
 	}
 }
+
+// TestPlane ...
+func TestPlane(t *testing.T) *Plane {
+	return &Plane{
+		Name:            "GolangAirlines",
+		ManufactureYear: 1997,
+	}
+}

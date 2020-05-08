@@ -9,8 +9,9 @@ import (
 
 // Store ...
 type Store struct {
-	db             *sql.DB
-	userRepository *UserRepository
+	db              *sql.DB
+	userRepository  *UserRepository
+	planeRepository *PlaneRepository
 }
 
 // New ...
@@ -31,4 +32,17 @@ func (s *Store) User() store.UserRepository {
 	}
 
 	return s.userRepository
+}
+
+// Plane ...
+func (s *Store) Plane() store.PlaneRepository {
+	if s.planeRepository != nil {
+		return s.planeRepository
+	}
+
+	s.planeRepository = &PlaneRepository{
+		store: s,
+	}
+
+	return s.planeRepository
 }
