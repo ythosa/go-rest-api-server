@@ -8,9 +8,3 @@ type UserRepository interface {
 	FindByEmail(string) (*model.User, error)
 	Find(int) (*model.User, error)
 }
-
-// PlaneRepository ...
-type PlaneRepository interface {
-	Create(*model.Plane) error
-	Find(int) (*model.Plane, error)
-}
